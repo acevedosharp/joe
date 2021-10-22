@@ -15,6 +15,8 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
             .httpBasic().disable()
             .formLogin().disable()
             .csrf().disable()
+            .headers()
+                .contentSecurityPolicy("script-src 'self'")
     }
 
 }

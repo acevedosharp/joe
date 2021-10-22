@@ -24,7 +24,7 @@ class CommentController( private val commentRepo: CommentRepo ) {
             commentRepo.save(
                 Comment(
                     id = null,
-                    text = StringEscapeUtils.escapeHtml4(postCommentRequest.text)
+                    text = postCommentRequest.text
                 )
             )
         } catch (e: RuntimeException) {
