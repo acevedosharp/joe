@@ -2,7 +2,7 @@ POST http://localhost:2710/comments
 Content-Type: application/json
 
 {
-  "text": "Hey Jose, your new hat looks great! :)"
+  "text": "Sample comment 3"
 }
 
 ###

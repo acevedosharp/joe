@@ -27,6 +27,9 @@ dependencies {
 	runtimeOnly("mysql:mysql-connector-java")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
+
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-text
+	implementation("org.apache.commons:commons-text:1.9")
 }
 
 tasks.withType<KotlinCompile> {

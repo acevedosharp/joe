@@ -2,6 +2,7 @@ package com.acevedosharp.joe.controller
 
 import com.acevedosharp.joe.persistence.Comment
 import com.acevedosharp.joe.persistence.CommentRepo
+import org.apache.commons.text.StringEscapeUtils
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -18,11 +19,12 @@ class CommentController( private val commentRepo: CommentRepo ) {
     @PostMapping
     @ResponseBody
     fun postComment(@RequestBody postCommentRequest: PostCommentRequest): ResponseEntity<String> {
+
         try {
             commentRepo.save(
                 Comment(
                     id = null,
-                    text = postCommentRequest.text
+                    text = StringEscapeUtils.escapeHtml4(postCommentRequest.text)
                 )
             )
         } catch (e: RuntimeException) {
@@ -35,5 +37,11 @@ class CommentController( private val commentRepo: CommentRepo ) {
     fun getCommentsView(model: Model): String {
         model.addAttribute("commentsList", commentRepo.findAll())
         return "comments"
+    }
+
+    @GetMapping("/raw")
+    @ResponseBody
+    fun getComments(): List<Comment> {
+        return commentRepo.findAll()
     }
 }

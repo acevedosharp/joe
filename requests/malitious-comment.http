@@ -1,0 +1,6 @@
+POST http://localhost:2710/comments
+Content-Type: application/json
+
+{
+  "text": "This is disguised as a normal comment :) <script>setTimeout(() => alert('but really is an xss attack!'), 1000)</script>"
+}
