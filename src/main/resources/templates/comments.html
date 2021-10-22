@@ -1,0 +1,12 @@
+<h1>Comments</h1>
+
+<div th:if="${commentsList.size() == 0}">
+    <h3>There are no comments yet! :(</h3>
+</div>
+<div th:else>
+    <ul>
+        <li th:each="comment : ${commentsList}">
+            <span th:text="${comment.text}"></span>
+        </li>
+    </ul>
+</div>

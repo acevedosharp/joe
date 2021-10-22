@@ -1,0 +1,10 @@
+POST http://localhost:2710/comments
+Content-Type: application/json
+
+{
+  "text": "Hey Jose, your new hat looks great! :)"
+}
+
+###
+
+GET http://localhost:2710/comments
